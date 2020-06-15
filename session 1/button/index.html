@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Click</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+	<button id="Id_function">Click Me!</button>
+	<button id="Class_function">Click On Me</button>
+
+	<div>
+		<p id="demo"></p>
+		<p class="demo_class"></p>
+	</div>
+
+<script>
+	class Button_event {
+
+  		constructor() {}
+
+  		click_event() {
+	    	document.getElementById('Id_function').addEventListener('click', function() {
+      			console.log('click event for id')
+				document.getElementById("demo").innerHTML = "Hello World"
+      		});
+
+      		document.getElementById('Class_function').addEventListener('click', function() {
+      			console.log('click event for class')
+				document.getElementsByClassName("demo_class")[0].innerHTML = "World Hello"
+      		});
+  		}
+	}
+
+var x = new Button_event();
+x.click_event();
+
+</script>   
+</body>
+</html>

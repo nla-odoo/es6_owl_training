@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session 1</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+	<button id="btn">Click Me!</button>
+
+	<p id="demo"></p>
+<script>
+	class Counter {
+
+		constructor() {
+			this.temp = 0;
+			this.list1 = []
+			this.key = 0;
+		}
+
+		addValues(){
+			var list1 = [];
+			var value = this.temp++;
+			var key = this.key;
+			list1.push({key: key, value: value});
+			console.log('list>>>>>',+list1);
+			this.key++;
+			console.log('add value in the list')
+		}
+
+		showValues() {
+			console.log(" show value list >>>>>>.",+this.list);
+		}
+	}
+
+	const cnt = new Counter();
+
+	console.log(cnt);
+
+	cnt.addValues();
+	cnt.showValues();
+
+</script>   
+</body>
+</html>

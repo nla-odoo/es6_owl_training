@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+
+<script>
+const list1 = [10,20,25,27,15]
+//_.each
+_.each([10,15,20,25], (value) => console.log(value));
+
+console.log("====> using function <====")
+_.each([10,15,20,25], function(value) {console.log(value)});
+
+
+
+
+//forEach
+
+list1.forEach((value) => {console.log(value * value)});
+
+console.log("====> using function <====")
+list1.forEach(function(value) {console.log(value * value)});
+
+
+
+
+
+//_.map
+var x = _.map(list1, function(val){
+	return val % 5;
+})
+console.log("_.map is ",+x);
+
+//map
+var Smapx = list1.map(function(val){
+	return val % 5;
+});
+console.log("map is ",+Smapx);
+
+
+
+
+
+//_.min
+console.log("_.min >>>>>", +_.min(list1));
+<!--console.log("min >>>>>>>>..",+min(list1));-->
+
+
+
+//_.max
+console.log("_.max >>>>>>>>>",+_.max(list1));
+
+
+
+//_filter
+var u_fill_x = _.filter([10,15,20,25,27], function(num){
+	return num % 2 == 0;
+});
+console.log("_filter>>>>>>>>>>>.",+u_fill_x);
+
+var fill_x = list1.filter(function(num){
+	return num % 2 == 0;
+})
+console.log("filter>>>>>>>>>>>.",+fill_x);
+
+
+
+//_.find
+var even = _.find(list1, function(num){
+	return num % 2 == 0;
+});
+console.log("_find   >>>>>>>>>>>.",+even);
+
+//find
+var odd = list1.find(function(num){
+	return num % 2 == 1;
+});
+console.log("find   >>>>>>>>>>>.",+odd);
+
+
+
+
+//_includes
+console.log('click event')
+var _number = _.includes(list1, 15);
+console.log("_.include   >>>>>>>>>>>.",+_number);
+
+var number = list1.includes(16)
+console.log("include   >>>>>>>>>>>.",+number);
+
+
+//_orderby
+var sorted = _.sortBy(list1,function(num){
+	return num;
+});
+console.log("_.sortBy  >>>>>>>>>>>.",+number);
+
+
+</script>   
+</body>
+</html>
