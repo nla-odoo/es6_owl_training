@@ -1,0 +1,103 @@
+<html>
+    <body>
+    <h2>Declaring a Variable Using let</h2>
+    <p id="test"></p>
+    <script type="text/javascript" src="../underscore.js"></script>
+    <script type="text/javascript">
+
+    //each function using underscore.js
+    _.each(['o', 'w', 'l'], (value, index) => {console.log(value)});
+
+    //using naitve method
+    ['o', 'w', 'l'].forEach((value, index) => {console.log(value)})
+
+    //filter function using underscore.js
+    function checkAdult (age) {
+      return age >= 18
+    }
+    var age = [10, 45, 18, 30, 6]
+    var filtered = _.filter(age, checkAdult)
+    console.log(filtered)
+
+    //using naitve method
+    var filtered = age.filter(checkAdult)
+    console.log(filtered)
+
+    //includes function using underscore.js
+    var language = ["English", "Hindi", "Gujarati", "Marathi"];
+    var n = language.includes("Hindi");
+    console.log(n)
+
+    //using naitve method 
+    var n = language.includes("Hindi")
+    console.log(n)
+
+    //map function using underscore.js
+    const numbers = [2, 3, 4, 5];
+    var x = _.map(numbers, (value, index) => {return value + 1})
+    console.log(x)
+
+    //using native method
+    var x = numbers.map((value, index) => {return value + 1})
+    console.log(x)
+
+    //extend function using underscore.js
+    const obj1 = {trigram: "dwa"}
+    const obj2 = {name: "Dhwani"}
+    console.log(_.extend(obj1, obj2));
+
+    //native method
+    console.log(Object.assign(obj1, obj2));
+
+    //find function using underscore.js
+    const fruits = [
+      {name:"banana", amount: 2},
+      {name:"apple", amount: 4},
+      {name:"pineapple", amount: 2},
+      {name:"mango", amount: 1}
+    ];
+    console.log(_.find(fruits, (o) => { return o.amount < 4; }));
+
+    //using native method
+    console.log(fruits.find((o) => { return o.amount < 4; }));
+
+    //orderby using underscore.js
+    console.log(_.sortBy([3,2,6,8]));
+
+    //native method
+    console.log([3,2,6,8].sort());
+    const sortBy = (fruits) => {
+      return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
+    };
+
+    //min, max function using underscore.js
+    const data = [{ amount: 1 }, { amount: 2 }, { amount: 3 }]
+    const minvalue = _.min(data, 'amount')
+    const maxvalue = _.max(data, 'amount')
+    console.log(minvalue, maxvalue)
+
+    //using native method
+    const minval = data.reduce((a, b) => {return a.value > b.value ? b : a})
+    const maxval = data.reduce((a, b) => {return a.value > b.value ? a : b})
+    console.log(minval, maxval)
+
+
+    //class
+    class user {
+        constructor(name, trigram) {
+            this.name = name;
+            this.trigram = trigram;
+        }
+
+        printvalues() {
+            console.log(this.name, this.trigram)
+        }
+    }
+
+    const a = new user('Dhwani', 'DWA');
+    console.log(a)
+    console.log(a.printvalues())
+
+    </script>
+    </body>
+</html>
