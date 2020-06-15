@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<p>Click the button to sort the array.</p>
+
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<script>
+    var numbers = [1,4,5,9,6];
+    document.getElementById("demo").innerHTML += numbers;
+
+    hello = () => {
+        numbers.sort()
+        document.getElementById("demo").innerHTML += numbers;
+    }
+    document.getElementById("btn").addEventListener("click", hello);
+</script>
+
+</body>
+</html>

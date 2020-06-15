@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session 1</title>
+</head>
+<script type="text/javascript" src="/home/nidhi/Desktop/underscore.js"></script>
+<body>
+    <button id="btn">Click Me!</button>
+
+    <p id="demo"></p>
+<script>
+    var  x = 10;
+    // Here x is 10
+    console.log("outside="+x)
+    var a = [1,2,3,4,5,6,7,8];
+
+    // forEach
+    console.log("each without underscore----")
+    a.forEach(num => {
+        if (num % 2 == 0)
+            console.log(num+" is even");
+    });
+
+    // _.each
+    console.log("each using underscore----")
+    _.each(a, num => {
+        if (num % 2 != 0)
+            console.log(num+" is odd");
+    });
+
+    // _.extend
+    var obj1 = {name: 'Nidhi', email: 'nia@xyz.com'};
+    var obj2 = {contact: '1231231234', address: 'Kalol'};
+    console.log("Extend Object---");
+    console.log(_.extend(obj1, obj2));
+
+    // native method of extend
+    console.log(Object.assign(obj1, obj2));
+
+    // _.map
+    console.log("using _.map function--")
+    var temp = _.map(a, num => 
+        {return num + 5;}
+    );
+    console.log(temp);
+
+    // native method of map
+    var temp = a.map(num => 
+        {return num + 5;}
+    );
+    console.log(temp);
+
+    // _.filter
+    console.log("filter function---")
+    var temp = _.filter(a, num => {
+        if (num % 3 == 0)
+            return num;
+    });
+    console.log(temp);
+
+    // native method of filter
+    var words = ['spray', 'limit', 'present'];
+    var result = words.filter(word => word.length > 5);
+    console.log(result);
+
+    // _.max
+    console.log("max function---")
+    var results = [{name: 'pqr', percentage: 90}, {name: 'abc', percentage: 80}, {name: 'xyz', percentage: 70}];
+    var temp = _.max(results, result =>
+        { return result.percentage; }
+    );
+    console.log(temp);
+
+    // _.min
+    console.log("min function---")
+    var temp1 = _.min(results, result =>
+        { return result.percentage; }
+    );
+    console.log(temp1);
+
+    // _.find
+    console.log("find function---")
+    var found = _.find(a, num => 
+        { return num > 5; }
+    );
+    console.log(found);
+
+    // includes
+    console.log("includes function---")
+    console.log(a.includes(5));
+
+    // sort
+    console.log("sort function---")
+    const array1 = [1, 30, 4, 21];
+    array1.sort();
+    console.log(array1);
+
+    class Student {
+
+        constructor(name, roll_no, std) {
+            this.value = [];
+        }
+
+        showValues() {
+            this.value.forEach(val => {
+                console.log("Name: ", val.name, "Roll No.: ", val.roll_no, "Standard: ", val.std);
+            });
+        }
+
+        addValues(name, roll_no, std) {
+            this.value.push({name: name, roll_no: roll_no, std: std});
+        }
+    }
+
+    const student = new Student();
+    student.addValues('Nidhi', '1', '10');
+    student.addValues('xyz', '2', '10');
+    student.showValues();
+
+</script>
+</body>
+</html>
