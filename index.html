@@ -7,178 +7,117 @@
 <body>
 	<button id="btn">Click Me!</button>
 
+	<div id="clickEventDiv">
+    </div>
+
 	<p id="demo"></p>
 <script>
 
-// var numbers = [4, 9, 16, 25, 29];
-// var first = numbers.find(myFunction);
-
-// document.getElementById("demo").innerHTML = "First number over 9 is " + first;
-
-// function myFunction(value, index, array) {
-//   return value > 9;
-// }
-
-
-class Person {
-	constructor(name,empcode) {
-		this.name = name;
-		this.empcode = empcode;
+class Employee{
+	constructor() {
+		this.values = [];
 	}
 
-	addValues = () => {
-		
-		var length = dict.length;
-		dict[dict.length] = {name: this.name, empcode: this.empcode};
+	showValues(){
+		console.log("this", this.values);
 	}
 
-  	showValues = () => {
-		for (var i in dict) {
-			console.log(dict[i]);
-			
-		}
-   }
+	addValues(name, empcode){
+		var list = {'name' :name, 'empcode' :empcode};
+		this.values.push(list);
+	}
 }
 
-var dict = [];
-person1 = new Person("Neel","nem");
-person2 = new Person("Yograj","yta");
-person3 = new Person("Nikunj","nla");
-person4 = new Person("Harshad", "hmo");
+const emp = new Employee();
 
-person1.addValues();
-person2.addValues();
-person3.addValues();
-person4.addValues();
+emp.addValues("Neel", "nem");
+emp.addValues("Yograj", "yta");
+emp.addValues("Nikunj", "nla");
+emp.addValues("Harshad", "hmo");
+emp.showValues();
 
-person1.showValues();
+console.log("-------------------------------");
 
-// hello = () => {
-//   document.getElementById("demo").innerHTML += ;
-// }
+clickEvent = function() {
+	var htmlCode="<p><B>This is performed by click Event</B></p>"
+	document.getElementById("clickEventDiv").innerHTML=htmlCode;
+}
 
-//The window object calls the function:
-// window.addEventListener("load", hello);
+document.getElementById("btn").addEventListener("click", clickEvent);
 
-//A button object calls the function:
-//document.getElementById("btn").addEventListener("click", hello);
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.find(myFunction);
 
+document.getElementById("demo").innerHTML = "First number over 9 is " + first;
 
-// var  x = 10;
-// // Here x is 10
-// console.log("outside="+x)
-// {  
-//   let x = 2;
-//   // Here x is 2
-//   console.log("inside block="+x)
-// }
-// // Here x is 10
-// console.log("outside="+x);
-// const y;
-// y=5;
-// y= y+1;
-// console.log("y="+y)
-// let y;
-
-
-
-
-
-// /* arrow function*/
-// var get = function (a, b) {
-//    return a + b;
-// }
-
-// console.log(get(1, 2));
-
-
-
-// const get = a => {return a *2};
-
-// console.log(get(1));
-
-
-
-/*this in arrow function*/
-
-// Regular Function:
-// hello = function() {
-// 	//debugger;
-//   document.getElementById("demo").innerHTML += this;
-// }
-// window.addEventListener("load", hello);
-
-// //The window object calls the function:
-
-// //A button object calls the function:
-// document.getElementById("btn").addEventListener("click", hello);
-
-
-
-// //Arrow Function:
-// hello = () => {
-//   document.getElementById("demo").innerHTML += this;
-// }
-
-// //The window object calls the function:
-// window.addEventListener("load", hello);
-
-// //A button object calls the function:
-// document.getElementById("btn").addEventListener("click", hello);
+function myFunction(value, index, array) {
+  return value > 9;
+}
 
 
 
 /* each */
+console.log("Each With underscore");
+_.each([1, 2, 3], (num) => console.log(num));
 
-// _.each([1, 2, 3], (num) => console.log(num));
-// [1,2,3].forEach(num => console.log("using underscore=="+num * num));
-// [1, 2, 3].forEach((num) => console.log("without underscore=="+num));
+console.log("-------------------------------");
 
+[1,2,3].forEach(num => console.log("FOREACH With underscore == "+num * num));
+[1, 2, 3].forEach((num) => console.log("FOREACH Without underscore == "+num));
 
+console.log("-------------------------------");
 
 /* map */
-// x = _.map([1,2,3], function(num){ return num * num;})
-// console.log("using underscore=="+x);
+x = _.map([1,2,3], function(num){ return num * num;})
+console.log("MAP using underscore == "+x);
 
-// temp = [1,2,3].map(num => {return num;});	
-// console.log("without underscore=="+temp);
+temp = [1,2,3].map(num => {return num*num;});	
+console.log("MAP without underscore == "+temp);
 
-
+console.log("-------------------------------");
 
 /* extend */
-// var obj1 = {};
-// var obj2 = {name2: 'pqr'};
-// var obj3 = {name3:'rr'};
-// console.log("using underscore==");
-// console.log(_.extend(obj1, obj2, obj3));
-
-// a = Object.assign({name: 'moe'}, {age: 50});
-// console.log("without underscore==");
-// console.log(a);
+var obj1 = {};
+var obj2 = {name2: 'obj1'};
+var obj3 = {name3: 'obj2'};
+console.log("using underscore==");
+console.log(_.extend(obj1, obj2, obj3));
 
 
-// class Employee {
+console.log("-------------------------------");
 
-//     constructor(...args) {
-//     	debugger;
-//         this.name = name;
-//         this.trigram = trigram;
-//     }
+//order by function without underscore
+var employees = ["Neel", "Yograj", "Harshad", "Nikunj"];
+console.log("SORT Without underscore",employees.sort());
 
-//     showValues() {
-//         console.log(this.name, this.trigram);
-//     }
-// }
+console.log("-------------------------------");
 
-// const emp1 = new Employee('Yograj', 'YTA');
 
- 
+//using underscore sortby function
+var employees2 = ["Neel", "Yograj", "Harshad", "Nikunj"];
+console.log("SORT With underscore",_.sortBy(employees2))
 
-// console.log(emp1);
+console.log("-------------------------------");
 
- 
+//using underscore find function
+var employees = ["Neel", "Yograj", "Harshad", "Nikunj"];
+console.log("FIND With underscore",_.find(employees,check))
 
-// emp1.showValues();
+console.log("-------------------------------");
+
+// using core find function
+var employees = ["Neel", "Yograj", "Harshad", "Nikunj"];
+console.log("FIND Without underscore",employees.find(check))
+
+function check(employee_name)
+{
+    console.log("This function will ittrate the list automaticly untill condition is satisfied",employee_name);
+    return employee_name=="Yograj";
+
+}
+
+console.log("-------------------------------");
+
 </script>   
 </body>
 </html>
