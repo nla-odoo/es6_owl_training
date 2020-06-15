@@ -1,6 +1,7 @@
 <html>
     <body>
-    <h2>Declaring a Variable Using let</h2>
+    <h2>OWL-ES6 session - 1</h2>
+    <button id="button">Click me!</button>
     <p id="test"></p>
     <script type="text/javascript" src="../underscore.js"></script>
     <script type="text/javascript">
@@ -83,20 +84,35 @@
 
 
     //class
-    class user {
-        constructor(name, trigram) {
-            this.name = name;
-            this.trigram = trigram;
+    class employee {
+        constructor () {
+            this.values = [];
         }
 
-        printvalues() {
-            console.log(this.name, this.trigram)
+        addValue(name, trigram) {
+            this.values.push({name: name, trigram: trigram});
+        }
+
+        showValues() {
+            this.values.forEach((value) => {
+                console.log("Name: ", value.name, ", Trigram: ", value.trigram);
+            });
         }
     }
 
-    const a = new user('Dhwani', 'DWA');
-    console.log(a)
-    console.log(a.printvalues())
+    const a = new employee();
+    a.addValue('Dhwani', 'dwa');
+    a.addValue('nikunj', 'nla');
+    a.addValue('yograj', 'yta');
+    a.showValues();
+
+    //button
+    demo = function() {
+      document.getElementById("test").innerHTML = 'hello! how are you?';
+    }
+
+    document.getElementById("button").addEventListener("click", demo);
+
 
     </script>
     </body>
