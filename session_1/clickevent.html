@@ -1,0 +1,23 @@
+<html>
+<body>
+
+<p>Click the button to sort the array.</p>
+
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML += fruits;
+
+hello = () => {
+    a = fruits.sort();
+    document.getElementById("demo").innerHTML += a;
+}
+
+document.getElementById("btn").addEventListener("click", hello);
+</script>
+
+</body>
+</html>

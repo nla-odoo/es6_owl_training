@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session 1</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+    <button id="btn">Click Me!</button>
+
+    <p id="demo"></p>
+<script>
+var  x = 10;
+// Here x is 10
+console.log("outside=",x);
+{  
+  let x = 2;
+  // Here x is 2
+  console.log("inside block="+x);
+}
+
+/* arrow function*/
+
+const get = a => {return a *2};
+console.log(get(4));
+
+/* each */
+
+var a = [1,2,3];
+_.each(a, (num) => console.log("using underscore"+num*num));
+
+a.forEach((num) => console.log("without underscore=="+num*num*num));
+
+/* extend */
+var obj1 = {name: 'nit'};
+var obj2 = {email:'nit@odoo.com'};
+var obj3 = {contact: '2345654'}
+console.log("using underscore==");
+console.log(_.extend(obj1, obj2, obj3));
+
+a = Object.assign({name: 'nit'}, {email: 'nit@odoo'});
+console.log("without underscore==");
+console.log(a);
+
+
+/* map */
+a = _.map([1,2,3], function(num){ return num * 5;});
+console.log("using underscore map=="+a);
+
+temp = [1,2,3].map(num => {return num*4;});   
+console.log("without underscore=="+temp);
+
+/* include */
+var language = ["English", "Hindi", "Gujarati", "Marathi"];
+var n = language.includes("Hindi");
+console.log("using underscore="+n);
+ 
+var n = language.includes("Hindi");
+console.log("without underscore"+n);
+
+/* min */
+
+a = _.min([1,2,3], function(num) {return num;})
+console.log("min value using underscore=="+a);
+
+/* max */
+
+a = _.max([1,2,3], function(num) {return num;})
+console.log("max value using underscore=="+a);
+
+/* filter */
+function number (value) {
+  return value >= 13;
+}
+var value = [10, 45, 18, 30, 6, 50, 3, 4];
+var filtered = _.filter(value, number);
+console.log("using underscore=="+filtered);
+
+var filtered = value.filter(number);
+console.log("without underscore=="+filtered);
+
+/* find */
+var a = [10, 20, 3, 40, 60]; 
+var f = a.find(function(element) { 
+  return element > 20; 
+}); 
+console.log(f);
+
+
+class employee {
+
+    constructor(name,trigram) {
+        this.values = [];
+    }
+
+    addValue(name, trigram) {
+        this.values.push({name: name, trigram: trigram});
+    }
+
+    showValues() {
+        this.values.forEach((value) => {
+            console.log("Name: ", value.name, ", Trigram: ", value.trigram);
+        });
+    }
+}
+
+const b = new employee();
+b.addValue('nisha', 'nit');
+b.addValue('nikunj', 'nla');
+b.addValue('yograj', 'yta');
+b.showValues();
+
+</script>   
+</body>
+</html>
