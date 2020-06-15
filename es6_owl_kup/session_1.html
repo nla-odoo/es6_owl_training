@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="/home/krupa/Desktop/underscore.js"></script>
+    <body>
+        <h3>First OWL Program</h3>
+        <p id="test">Hello! Everyone</p> 
+        <button id="b1">Click!</button>
+        <script>
+
+// ===============******=============variables==========*****============
+var  x = 24;
+// // Here x is 24
+console.log("outside="+x);
+{  
+  let x = 6;
+  // Here x is 6
+  console.log("inside block="+x);
+}
+// const y;   // declare constant variable which can't be change after once if declared
+// y=50;
+// y= y*2;
+// console.log("y="+y)
+// let y;   // let keywords variable can be change and not need to assign values.
+
+
+//-----------******* Native Methods*********---------------------------
+// each and foreach methods with and without underscore.
+let a = 5;
+console.log("Hello"+a);
+
+_.each([2, 4, 6], function (value) {
+    console.log(value);
+})
+
+_.each([2, 4, 9], function (value, index) {
+  console.log(value)
+})
+
+
+var x = [4,5];
+
+//using underscore method  =============================================================
+var y = _.map(x, function(count){return count * count;})
+console.log("Using Underscore="+y);
+
+// without using underscore and arrow function =========================================
+var z = x.map(count => {return count + 1;})
+console.log("without Underscore="+y);
+
+// simple function ======================================================================
+var get = function(x, y) {
+    return x ^ y;
+}
+console.log(get(25, 26));
+
+
+// Arrow function ====================================================================
+
+const measure = temp => {return temp *5};
+console.log(measure(125));
+ 
+
+// extend method =======================================================================
+var x1 = {name: 'krup'};
+var x2 = {lastname: 'p'};
+var x3 = {trio:'kup'};
+console.log("using underscore==");
+console.log(_.extend(x1, x2, x3));
+
+// assign by object and can store many data as key and value
+dict = Object.assign({name: 'alexa'}, {age: 5}, {company: 'odoo'});
+console.log("without underscore==");
+console.log(dict);
+
+// foreach ==========================================================================
+[1, 2, 3].forEach((num) => console.log("without underscore=="+num));
+
+
+// Classes =========================================================================
+
+class Student {
+
+    constructor(name, age) {        //constructor is replace of init method from ES6.
+        this.name = name;
+        this.age = age;
+    }
+
+    showValues() {
+        console.log(this.name, this.age);
+    }
+}
+const stu1 = new Student('Sonu', '20');
+console.log(stu1);
+
+stu1.showValues();
+
+
+// addValues method of class ============================================================
+
+class Result {
+
+    constructor(sub1, sub2) {
+        this.sub1 = sub1;
+        this.sub2 = sub2;
+    }
+
+    addValues() {
+        console.log(this.sub1, this.sub2);
+    }
+}
+
+const obtain = new Result(45, 46);
+console.log(obtain);
+obtain.addValues();
+
+
+// Button =========================================================================
+hello = () => {
+  document.getElementById("test").innerHTML += this;
+}
+
+document.getElementById("b1").addEventListener("click", hello);
+
+        </script>
+    </body>
+</html>
+
+
+
