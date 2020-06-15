@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 1</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+	<button id="btn">Click Me!</button>
+
+	<p id="demo"></p>
+<script>
+	// each 
+	_.each([1, 2, 3], (num) => {
+	if (num % 2 == 0) {
+		console.log(num+"is even using underscore");
+	}
+	else {
+		console.log(num+"is odd using underscore");
+	}
+	});
+	a = [1, 2, 3];
+
+	a.forEach(num => {
+	  if (num % 2 == 0)
+	  	console.log(num+"is even");
+	  else
+	  	console.log(num+"is odd");
+	});
+
+	// extend
+
+	let dict = {};
+	let list = ['abc', 2, 1];
+	let dict1 = {name2: 'pqr', name3:'rr'};
+	console.log("using underscore==");
+	console.log(_.extend(dict, list, dict1));
+
+	Object.assign(dict, list, dict1);
+
+	// map
+
+	a=[1,2,3,4,5];
+	x = _.map(a, function(num){return num / 2;
+	})
+	console.log("using underscore=="+x);
+	temp = a.map(num => {return num / 2;});
+	console.log("without underscore=="+temp);
+
+	// filter
+
+	a=[2,4,3,1,5];
+	x = _.filter(a, function(num){ return num > 2;
+	})
+	console.log("using underscore=="+x);
+	filtr = a.filter(num => num > 2);
+	console.log("without underscore=="+filtr);
+
+	// order by
+
+	a=[2,4,3,1,5];
+	console.log("order by in ascending=="+a.sort());
+	console.log("order by in descending=="+a.reverse());
+
+	// min and max
+
+	nums = [1, 2, 3];
+	console.log("maximum number of nums"+Math.max(...nums));
+	console.log("minimum number of nums"+Math.min(...nums));
+
+	// find 
+
+	a=[1,2,3,4,5];
+	x = _.find(a, function(num){return num = 2;
+	})
+	console.log("using underscore=="+x);
+	temp = a.find(num => {return num = 2;});
+	console.log("without underscore=="+temp);
+
+	// includes
+
+	a=[1,2,3,4,5];
+	console.log(a.includes(1,0));
+
+	// class 
+
+	class Data {
+	  constructor() {
+	  	this.values = [];
+	  }
+	  addValues (name, trigram) {
+	  	this.values.push({name: name, trigram: trigram});
+	  }
+	  showValues () {
+	  	this.values.forEach(val => {
+		  	console.log("name:",val.name, "trigram:",val.trigram);
+		  });
+	  }
+	}
+
+	mydata = new Data([{name: 'Yograj', 'trigram': 'YTA'}]);
+	mydata.addValues('krupal', 'koz');
+	mydata.addValues('manshi', 'mag');
+
+	// button event
+
+	hello = () => {
+	a = 5;
+    document.getElementById("demo").innerHTML += a;
+	}
+	document.getElementById("btn").addEventListener("click", hello);
+
+</script>
+</body>
+</html>
