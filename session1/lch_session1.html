@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session 1</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+	<button id="btn">Click Me and Create Table</button>
+    <br>
+    <br>
+    <div id="DivForTable">
+    </div>
+    
+
+	<p id="demo"></p>
+</body>
+</html>
+
+
+<script>
+
+create_table = function() {
+  var t=" <table border = '1'><tr><td>Row 1, Column 1</td> <td>Row 1, Column 2</td></tr><tr><td>Row 2, Column 1</td><td>Row 2, Column 2</td></tr></table>"
+  document.getElementById("DivForTable").innerHTML=t;
+}
+
+document.getElementById("btn").addEventListener("click", create_table);
+
+
+
+
+
+//using underscore
+_.each([1, 2, 3], (num) => console.log(num*num));
+
+//using widout underscore
+[1, 2, 3].forEach((num) => console.log("without underscore=="+num*num));
+
+
+
+
+
+/* extend */
+var obj1 = {name1: 'lavish'};
+var obj2 = {name2: 'pqr'};
+var obj3 = {name3:'rr'};
+console.log("using underscore==");
+var new_obj= _.extend(obj1, obj2, obj3);
+console.log(new_obj);
+
+
+/* assign */
+var obj1 = {name1: 'lavish'};
+var obj2 = {name2: 'pqr'};
+var obj3 = {name3:'rr'};
+a = Object.assign(obj1, obj2, obj3);
+console.log("without underscore==");
+console.log(a);
+
+
+
+/* map */
+x = _.map([1,2,3], function(num){ return num * num;})
+console.log("using underscore=="+x);
+
+//without underscore map
+temp = [1,2,3].map(num => {return num;});   
+console.log("without underscore=="+temp[1]);
+
+
+
+//using underscore
+x=[33,55,77,88]
+console.log("underscore filter.....",_.filter(x,check));
+
+
+//widout underscore
+x=[33,55,77,88]
+console.log("native filter.....",x.filter(check));
+
+//above both are using same check function
+function check(age)
+{
+    return age>=58;
+
+}
+
+
+
+
+
+//order by function widout underscore
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log("sort in vanila",fruits.sort());
+
+//using underscore sortby function
+var fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+console.log("sort in odoo",_.sortBy(fruits2))
+
+
+
+//using underscore find function
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log("find in odoo",_.find(fruits,check))
+
+
+
+// using core find function
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+console.log("find in core es6 js",fruits.find(check))
+
+//both will use the same function
+function check(fruit_name)
+{
+    console.log("This function will ittrate the list automaticly untill condition is satisfied",fruit_name);
+    return fruit_name=="Apple";
+
+}
+
+
+
+
+// include known as contain in odoo underscore
+x=[1,2,3,4,5]
+console.log("\n\n\n\n include fun in odoo ", _.contains(x,2)) //--> will return true
+console.log("\n\n\n\n include fun in odoo ", _.contains(x,20)) //--> will return false
+
+//include function in es6
+x=[1,2,3,4,5]
+console.log("\n\n\n\n includes fun in es6 ", x.includes(2)) //--> will return true
+console.log("\n\n\n\n includes fun in es6 ", x.includes(20)) //--> will return false
+
+
+
+//  using min in underscore
+x=[1,2,3,4,5]
+console.log("\n\n\n\n min fun in odoo ", _.min(x)) 
+
+//  using min widout underscore
+var x=[1,2,3,4,5]
+console.log("\n\n\n\n min fun in es6 ",Math.min(x)) 
+
+
+
+//max underscore
+x=[1,2,3,4,5]
+console.log("\n\n\n\n max fun in odoo ", _.max(x)) 
+
+
+//max in es6 js
+x=[1,2,3,4,5]
+console.log("\n\n\n\n max fun in es6 ", Math.max(x)) ;
+
+
+
+
+
+
+
+class Student {
+
+    constructor() {
+      
+        this.arr = []
+    }
+
+    showValues() {
+        console.log("this ",this.arr);
+    }
+
+    addValues(name, age)
+    {
+        var x={'name':name, 'age': age};
+        this.arr.push(x);
+    }
+}
+
+
+const std1= new Student();
+
+console.log(std1);
+
+std1.addValues("Akash", 44);
+std1.addValues("Lavish",23);
+
+std1.showValues()
+
+
+
+</script>   

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session 1</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+	<button id="btn">Click Me!</button>
+
+	<p id="demo"></p>
+<script>
+// var  x = 10;
+// // Here x is 10
+// console.log("outside="+x)
+// {  
+//   let x = 2;
+//   // Here x is 2
+//   console.log("inside block="+x)
+// }
+// // Here x is 10
+// console.log("outside="+x);
+// const y;
+// y=5;
+// y= y+1;
+// console.log("y="+y)
+// let y;
+
+
+
+
+
+// /* arrow function*/
+// var get = function (a, b) {
+//    return a + b;
+// }
+
+// console.log(get(1, 2));
+
+
+
+// const get = a => {return a *2};
+
+// console.log(get(1));
+
+
+
+/*this in arrow function*/
+
+// Regular Function:
+hello = function() {
+	debugger;
+  document.getElementById("demo").innerHTML += this;
+}
+window.addEventListener("load", hello);
+
+//The window object calls the function:
+
+//A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+
+
+// //Arrow Function:
+// hello = () => {
+//   document.getElementById("demo").innerHTML += this;
+// }
+
+// //The window object calls the function:
+// window.addEventListener("load", hello);
+
+// //A button object calls the function:
+// document.getElementById("btn").addEventListener("click", hello);
+
+
+
+/* each */
+
+// _.each([1, 2, 3], (num) => console.log(num));
+// [1,2,3].forEach(num => console.log("using underscore=="+num * num));
+// [1, 2, 3].forEach((num) => console.log("without underscore=="+num));
+
+
+
+/* map */
+// x = _.map([1,2,3], function(num){ return num * num;})
+// console.log("using underscore=="+x);
+
+// temp = [1,2,3].map(num => {return num;});	
+// console.log("without underscore=="+temp);
+
+
+
+/* extend */
+// var obj1 = {};
+// var obj2 = {name2: 'pqr'};
+// var obj3 = {name3:'rr'};
+// console.log("using underscore==");
+// console.log(_.extend(obj1, obj2, obj3));
+
+// a = Object.assign({name: 'moe'}, {age: 50});
+// console.log("without underscore==");
+// console.log(a);
+
+
+// class Employee {
+
+//     constructor(...args) {
+//     	debugger;
+//         this.name = name;
+//         this.trigram = trigram;
+//     }
+
+//     showValues() {
+//         console.log(this.name, this.trigram);
+//     }
+// }
+
+// const emp1 = new Employee('Yograj', 'YTA');
+
+ 
+
+// console.log(emp1);
+
+ 
+
+// emp1.showValues();
+</script>   
+</body>
+</html>
