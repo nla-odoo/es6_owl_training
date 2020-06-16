@@ -15,6 +15,12 @@ class Model{
 		return data;
 	}
 
+    get_data()
+    {
+        var data=allStorage()
+        return data;
+    }
+
 }
 
 

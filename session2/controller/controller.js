@@ -14,6 +14,12 @@ document.querySelector(".btn").addEventListener("click",(e) =>
 
 	});
 
+document.addEventListener("DOMContentLoaded", () => {
+    var m= new Model();
+    data=m.get_data();
+    create_table(data);
+
+  });
 
 function create_table(data) {
 
