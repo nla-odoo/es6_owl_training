@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise</title>
+</head>
+<script type="text/javascript" src="underscore.js"></script>
+<body>
+
+<script>
+const list1 = [10,20,25,27,15];
+//_.each
+_.each([10,15,20,25], (value) => console.log(value));
+
+console.log("====> using function <====");
+_.each([10,15,20,25], function(value) {console.log(value)});
+
+
+
+
+//forEach
+
+list1.forEach((value) => {console.log(value * value)});
+
+console.log("====> using function <====");
+list1.forEach(function(value) {console.log(value * value)});
+
+
+
+
+
+//_.map
+var x_underscore_map = _.map(list1, function(val){
+	return val % 5 == 0;
+})
+console.log("_.map is ",x_underscore_map);
+
+//map
+var x_map = list1.map(function(val){
+	return val % 5 == 0;
+});
+console.log("map is ",x_map);
+
+
+
+
+
+//_.min
+console.log("_.min >>>>>", +_.min(list1));
+<!--console.log("min >>>>>>>>..",+min(list1));-->
+
+
+
+//_.max
+console.log("_.max >>>>>>>>>",+_.max(list1));
+
+
+
+//_filter
+<!--var u_fill_x = _.filter([10,15,20,25,27], function(num){-->
+<!--	return num > 10;-->
+<!--});-->
+var oddNo_underscore_filter = _.filter([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                function(num){
+                    return num % 2 != 0;
+                });
+console.log("_filter>>>>>>>>>>>.",oddNo_underscore_filter);
+
+var eventNum_filter = list1.filter(function(num){
+	return num % 2 == 0;
+})
+console.log("filter>>>>>>>>>>>.",fill_x);
+
+
+
+//_.find
+var evenNo_underscore_find = _.find(list1, function(num){
+	return num % 2 == 0;
+});
+console.log("_find   >>>>>>>>>>>.",+evenNo_underscore_find);
+
+//find
+var oddNo_find = list1.find(function(num){
+	return num % 2 == 1;
+});
+console.log("find   >>>>>>>>>>>.",+oddNo_find);
+
+
+
+
+//_includes
+console.log('click event');
+var num_underscore_include = _.includes(list1, 15);
+console.log("_.include   >>>>>>>>>>>.",+num_underscore_include);
+
+var num_include = list1.includes(16);
+console.log("include   >>>>>>>>>>>.",+num_include);
+
+
+//_orderby
+var sortList_underscore_orderBy = _.sortBy(list1, function(num) {
+		return num;
+	});
+console.log("_.sortBy  >>>>>>>>>>>.",sortList_underscore_orderBy);
+
+var sortList_orderBy = list1.sort();
+console.log("sorted by : " +	sortList_orderBy );
+
+
+</script>   
+</body>
+</html>

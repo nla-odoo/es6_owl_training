@@ -10,21 +10,16 @@
 	<p id="demo"></p>
 <script>
 	class Counter {
-
-		constructor() {
-			this.temp = 0;
-			this.list1 = []
-			this.key = 0;
-		}
-
 		addValues(){
 			var list1 = [];
+			this.temp = 0;
+			this.key = 0;
 			var value = this.temp++;
 			var key = this.key;
-			list1.push({key: key, value: value});
-			console.log('list>>>>>',+list1);
+			this.list1.push({key: key, value: value});
+			console.log('list>>>>>',+this.list1);
 			this.key++;
-			console.log('add value in the list')
+			console.log('add value in the list');
 		}
 
 		showValues() {
