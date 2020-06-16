@@ -51,3 +51,14 @@ document.getElementById("kboard").addEventListener("keyup", (ev) => {
 	ev.preventDefault();
 	document.getElementById("kboard").style.backgroundColor = "yellow";
 })
+
+document.getElementById("focus").addEventListener("focus", (ev) => {
+	ev.preventDefault();
+	document.getElementById("focus").style.backgroundColor = "blue";
+})
+
+document.getElementById("focus").addEventListener("blur", (ev) => {
+	ev.preventDefault();
+	document.getElementById("focus").style.backgroundColor = "orange";
+})
+
