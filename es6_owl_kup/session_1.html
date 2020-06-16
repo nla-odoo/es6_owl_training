@@ -8,7 +8,7 @@
         <script>
 
 // ===============******=============variables==========*****============
-var  x = 24;
+x = 24;
 // // Here x is 24
 console.log("outside="+x);
 {  
@@ -37,14 +37,14 @@ _.each([2, 4, 9], function (value, index) {
 })
 
 
-var x = [4,5];
+x1 = [4,5];
 
 //using underscore method  =============================================================
-var y = _.map(x, function(count){return count * count;})
+y = _.map(x1, function(count){return count * count;})
 console.log("Using Underscore="+y);
 
 // without using underscore and arrow function =========================================
-var z = x.map(count => {return count + 1;})
+z = x1.map(count => {return count + 1;})
 console.log("without Underscore="+z);
 
 // simple function ======================================================================
@@ -61,11 +61,11 @@ console.log(measure(125));
  
 
 // extend method =======================================================================
-var x1 = {name: 'krup'};
-var x2 = {lastname: 'p'};
-var x3 = {trio:'kup'};
+x2 = {name: 'krup'};
+x3 = {lastname: 'p'};
+x4 = {trio:'kup'};
 console.log("using underscore==");
-console.log(_.extend(x1, x2, x3));
+console.log(_.extend(x2, x3, x4));
 
 // assign by object and can store many data as key and value
 dict = Object.assign({name: 'alexa'}, {age: 5}, {company: 'odoo'});
@@ -97,11 +97,6 @@ stu1.showValues();
 
 // addValues method of class ============================================================
 
-
-// addValue(name, enroll, sub1, sub2) {
-//     this.values.push({name: name, enroll: enroll, sub1: sub1, sub2: sub2});
-// }
-
 class Stud {
     constructor () {
         this.values = [];
@@ -120,6 +115,7 @@ console.log(re);
 
 
 // Button =========================================================================
+
 hello = () => {
   document.getElementById("test").innerHTML += this;
 }
