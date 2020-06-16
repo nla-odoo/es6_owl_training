@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <script type="text/javascript" src="/home/krupa/Desktop/underscore.js"></script>
+    <script type="text/javascript" src="/home/krupa/project/underscore.js"></script>
     <body>
         <h3>First OWL Program</h3>
         <p id="test">Hello! Everyone</p> 
@@ -45,7 +45,7 @@ console.log("Using Underscore="+y);
 
 // without using underscore and arrow function =========================================
 var z = x.map(count => {return count + 1;})
-console.log("without Underscore="+y);
+console.log("without Underscore="+z);
 
 // simple function ======================================================================
 var get = function(x, y) {
@@ -97,21 +97,26 @@ stu1.showValues();
 
 // addValues method of class ============================================================
 
-class Result {
 
-    constructor(sub1, sub2) {
-        this.sub1 = sub1;
-        this.sub2 = sub2;
+// addValue(name, enroll, sub1, sub2) {
+//     this.values.push({name: name, enroll: enroll, sub1: sub1, sub2: sub2});
+// }
+
+class Stud {
+    constructor () {
+        this.values = [];
     }
 
-    addValues() {
-        console.log(this.sub1, this.sub2);
+    addValue(name, enroll) {
+        this.values.push({name: name, enroll: enroll});
     }
 }
 
-const obtain = new Result(45, 46);
-console.log(obtain);
-obtain.addValues();
+const re = new Stud();
+re.addValue('Dhwani', '150130');
+re.addValue('Krupa', '150120');
+re.addValue('Jil', '130131');
+console.log(re);
 
 
 // Button =========================================================================
