@@ -1,0 +1,26 @@
+<html>
+<body>
+
+
+<span>Enter your name:(on focus)</span> <input type="text" onfocus="inputFocus(this)">
+<br/>
+<br/>
+
+<span>Name: (onblur) </span> <input type="text" id="name" onblur="blurEvent()">
+
+<form onsubmit="confirmInput()">
+Choose your favourite fruit : (submit and onchange event)
+  <select id="fruit" onchange="preferedFruit()">
+    <option value="mango">Mango</option>
+    <option value="banana">Banana</option>
+    <option value="apple">Apple</option>
+  </select>
+  <input type="submit">
+</form>
+
+
+
+
+</body>
+<script type="text/javascript" src="events.js"></script>
+</html>

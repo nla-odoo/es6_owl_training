@@ -14,11 +14,24 @@ class Model{
 
 			td.textContent = value.name;
 			const button = document.createElement('button');
-//		    button.id = value.id;
-		    button.id = "delete"    ;
+		    button.id = value.id;
+		    button.class = "delete";
             button.textContent = "Delete";
             button.onclick = 'delete(this)';
 			td1.append(button)
+			td1.addEventListener('click',(e) => {
+				console.log("event>>>>",e);
+				console.log("event>>>>",e.srcElement.type);
+				if (e.srcElement.type =='submit')
+				{
+						var targeteButton= e.target.id;
+						var m= new Model();
+						data=m.dataDeleteModel(targeteButton);
+						tbody.innerHTML='';
+						model(data);
+
+				}
+			});
 
 			tr.append(td);
 			tr.append(td1);
@@ -27,16 +40,50 @@ class Model{
 		})
 	}
 
-	dataSetModel(dataSetId){
+	dataDeleteModel(dataSetId){
+	    console.log('dataset id >>>>>',dataSetId)
         const localStorageDataSet = JSON.parse(localStorage.getItem('dataSet'))
         console.log('>>>>>>>>>',localStorageDataSet)
         localStorageDataSet.forEach((value) => {
             if(value.id == dataSetId){
-//                localStorageDataSet.delete(value);
+                value.remove();
             }
-
-
         })
         console.log('afterdelete >>>>>>>',localStorageDataSet);
+	}
+
+	dataSetLoader(){
+	    if(JSON.parse(localStorage.getItem('dataSet'))){
+	        const localStorageDataSet = JSON.parse(localStorage.getItem('dataSet'));
+	        const tableBody = document.querySelector('table tbody');
+	        localStorageDataSet.forEach((value) => {
+                const tr = document.createElement('tr');
+                const td = document.createElement('td');
+                const td1 = document.createElement('td');
+
+                td.textContent = value.name;
+                const button = document.createElement('button');
+                button.id = value.id;
+                button.class = "delete";
+                button.textContent = "Delete";
+                button.onclick = 'delete(this)';
+                td1.append(button)
+                td1.addEventListener('click',(e) => {
+                    if (e.srcElement.type =='submit')
+				    {
+						var targeteButton= e.target.id;
+						var m= new Model();
+						data=m.dataDeleteModel(targeteButton);
+						tbody.innerHTML='';
+						model(data);
+
+				    }
+                });
+                tr.append(td);
+                tr.append(td1);
+
+                tableBody.append(tr);
+		    })
+	    }
 	}
 }
