@@ -5,6 +5,7 @@ class Model{
 		const localStorageDataSet = JSON.parse(localStorage.getItem('dataSet')) || [];
 		localStorageDataSet.push(dataSet);
 		localStorage.setItem('dataSet', JSON.stringify(localStorageDataSet));
+		console.log(localStorageDataSet);
 		const tableBody = document.querySelector('table tbody');
 		tableBody.innerHTML = "";
 		localStorageDataSet.forEach((value) => {
