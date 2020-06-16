@@ -10,13 +10,13 @@ class table{
 		localStorageDataSet.forEach((value) => {
 			const tr = document.createElement('tr');
 			const td = document.createElement('td');
-			const del = document.createElement("button");
+			const del = document.createElement('button');
 			del.innerHTML = "Delete";
 			td.textContent = value.name;
 			tr.append(td);
 			tr.append(del);
 			tableBody.append(tr);
-			del.addEventListener("click", (ev) => {
+			del.addEventListener('click', (ev) => {
 				ev.preventDefault();
 				tr.remove();
 			});
