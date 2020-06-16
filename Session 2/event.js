@@ -15,3 +15,4 @@ document.getElementById("clearBtn").addEventListener("click", function(ev){
 	localStorage.clear();
 	location.reload();
 });
+
