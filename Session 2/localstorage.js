@@ -20,11 +20,15 @@ class Model{
 
 			del.addEventListener("click", (ev) => {
 				ev.preventDefault();
-				console.log("ID ---> " +value.id);
-				console.log("NAME ---> " +value.name);
 				var id = value.id;
-				localStorage.removeItem(id);
+				var name = value.name;
+				console.log(id);
+				var localStorageDataSet = JSON.parse(localStorage.getItem('dataSet1'))
+				console.log('>>>>>>>>>',localStorageDataSet)
+				localStorageDataSet = localStorageDataSet.filter((record) => record.id !== id);
+				localStorage.setItem('dataSet1', JSON.stringify(localStorageDataSet));
 				location.reload();
+
 			});
 
 		});
