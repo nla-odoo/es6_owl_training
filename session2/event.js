@@ -1,7 +1,6 @@
 document.getElementById('form').addEventListener('submit', function (ev) {
     ev.preventDefault();
-    const name = this.querySelector('input').value;
-    console.log(name);
+    const name = document.querySelector('input').value;
     const m1 = new Model();
     m1.model(name); 
 });
@@ -11,7 +10,7 @@ document.getElementById('mouseevent').addEventListener('mousedown', (ev) => {
     document.getElementById("mouseevent").style.color = "red";
 });
 
-document.getElementById('mouseevent').addEventListener('wheel', (ev) => {
+document.getElementById('mouseevent').addEventListener('mousewheel', (ev) => {
     ev.preventDefault();
     document.getElementById("mouseevent").style.fontSize = "50px";
 });
