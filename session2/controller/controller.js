@@ -23,13 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function create_table(data) {
 
+
 	Object.keys(data).forEach(function(element){
-
-
+/*			console.log(data[element].id);
+*/
 			var tr= document.createElement("tr");
 			var td = document.createElement("td");
 			var td2 = document.createElement("td");
-			var btn_html =" <button type='submit' id='"+element+"' class='btn Delete btn-success btn-sm btn-default'>Delete</button>";
+			var btn_html =" <button type='submit' id='"+data[element].id+"' class='btn Delete btn-success btn-sm btn-default'>Delete</button>";
 			
 			td2.addEventListener('click',(e) => {
 			
@@ -51,7 +52,7 @@ function create_table(data) {
 			});
 
 			td2.innerHTML=btn_html;
-			td.append(data[element]);
+			td.append(data[element].name);
 			tr.append(td);
 			tr.append(td2);
 			tbody.append(tr);

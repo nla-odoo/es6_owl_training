@@ -3,22 +3,29 @@ class Model{
 	Save_Data(text_box)
 	{
 		var uuid= create_UUID();
-		localStorage.setItem(uuid, text_box);
-		var data=allStorage()
-		return data;
+
+
+        const dataSet = {id: uuid, name: text_box};
+        const localStorageDataSet = JSON.parse(localStorage.getItem('dataSet')) || [];
+        localStorageDataSet.push(dataSet);
+        localStorage.setItem('dataSet', JSON.stringify(localStorageDataSet));
+        return localStorageDataSet ;
+
 	}
 
 	delete_data(uuid)
 	{	
-		localStorage.removeItem(uuid);
-		var data=allStorage()
-		return data;
+		var dataSet=localStorage.getItem('dataSet');
+        dataSet=JSON.parse(dataSet);
+        dataSet=dataSet.filter((record) => record.id !==uuid)
+        localStorage.setItem("dataSet",  JSON.stringify(dataSet));
+        return dataSet;
 	}
 
     get_data()
     {
-        var data=allStorage()
-        return data;
+        const localStorageDataSet = JSON.parse(localStorage.getItem('dataSet')) || [];
+        return localStorageDataSet;
     }
 
 }
@@ -34,7 +41,7 @@ function create_UUID(){
     return uuid;
 }
 
-
+/*
 
 function allStorage() {
 
@@ -47,4 +54,4 @@ function allStorage() {
     }
 
     return archive;
-}
+}*/
