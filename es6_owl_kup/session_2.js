@@ -11,7 +11,7 @@ document.getElementById("temp").addEventListener("focus", (ev) => {
     document.getElementById("temp").style.backgroundColor = "lightgrey";
 })
 
-/* Blur */
+ // Blur
 document.getElementById("temp").addEventListener("blur", (ev) => {
     ev.preventDefault();
     document.getElementById("temp").style.backgroundColor = "lightblue";
@@ -46,13 +46,13 @@ document.getElementById('content').addEventListener('contextmenu', event => {
 });
 
 /*keydown*/
-document.getElementById('name').addEventListener('keydown', (ev) => {
-    document.getElementById("name").style.backgroundColor = "lightred";
+document.getElementById('fname').addEventListener('keydown', (ev) => {
+    document.getElementById("fname").style.backgroundColor = "lightred";
 });
 
 /*Keyup*/
-document.getElementById('name').addEventListener('keyup', (ev) => {
-    document.getElementById("name").style.borderColor = "purple";
+document.getElementById('fname').addEventListener('keyup', (ev) => {
+    document.getElementById("fname").style.borderColor = "purple";
 });
 
 /*blur*/

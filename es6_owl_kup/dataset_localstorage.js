@@ -16,23 +16,18 @@ class TableModel{
             tableBody.append(tr);
             if (value.name) {
                 const del = document.createElement('button');
-                const content = value.name;
-                console.log(content);
+                del.setAttribute('id', value.id);
                 del.textContent = 'Delete';
                 td.append(del);
                 del.addEventListener('click', function (ev) {
-                    //const row = ev.currentTarget.parentElement.parentElement;
-                    td.remove();
-                    del.remove();
+                    ev.preventDefault();
+                    let key = del.id;
+                    JSON.parse(localStorage.getItem('dataSet'));
+                    let dataSet = localStorageDataSet.filter((record) => record.id !== key);
+                    localStorage.setItem('dataSet', JSON.stringify(localStorageDataSet));
+                    tr.remove();
                 })
             }
-            // window.addEventListener('load', (ev) => {
-            //     if (value) {
-            //         ev.preventDefault();
-            //         return value;
-            //         //window.localStorageDataSet.show();
-            //     }
-            // });
         })
 
     }
