@@ -16,10 +16,14 @@ class table{
 			tr.append(td);
 			tr.append(del);
 			tableBody.append(tr);
+
 			del.addEventListener('click', (ev) => {
 				ev.preventDefault();
+				let dataSet = JSON.parse(localStorage.getItem('dataSet'));
+				dataSet = dataSet.filter((record) => {return (record.id !== id)})
+				localStorage.setItem('dataSet', JSON.stringify(dataSet));
 				tr.remove();
-			});
+            });
 		});
 	}
 }
