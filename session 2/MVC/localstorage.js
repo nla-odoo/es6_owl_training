@@ -26,9 +26,10 @@ class Model{
 				{
 						var targeteButton= e.target.id;
 						var m= new Model();
-						data=m.dataDeleteModel(targeteButton);
+						var data=m.dataDeleteModel(targeteButton);
+						var tbody=  document.querySelector('table tbody');
 						tbody.innerHTML='';
-						model(data);
+						m.model(data);
 
 				}
 			});
@@ -42,13 +43,11 @@ class Model{
 
 	dataDeleteModel(dataSetId){
 	    console.log('dataset id >>>>>',dataSetId)
-        const localStorageDataSet = JSON.parse(localStorage.getItem('dataSet'))
+        var localStorageDataSet = JSON.parse(localStorage.getItem('dataSet'))
         console.log('>>>>>>>>>',localStorageDataSet)
-        localStorageDataSet.forEach((value) => {
-            if(value.id == dataSetId){
-                value.remove();
-            }
-        })
+        var afterDeleteData= localStorageDataSet.filter(function(num){ return dataSetId !== num.id});
+        localStorageDataSet = afterDeleteData;
+        localStorage.setItem('dataSet', JSON.stringify(localStorageDataSet));
         console.log('afterdelete >>>>>>>',localStorageDataSet);
 	}
 
@@ -73,9 +72,10 @@ class Model{
 				    {
 						var targeteButton= e.target.id;
 						var m= new Model();
-						data=m.dataDeleteModel(targeteButton);
+						var data=m.dataDeleteModel(targeteButton);
+						var tbody=  document.querySelector('table tbody');
 						tbody.innerHTML='';
-						model(data);
+						m.model(data);
 
 				    }
                 });
