@@ -6,15 +6,15 @@ document.getElementById('add_button_by_input_form').addEventListener('submit', f
 })
 
 /* Focus */
-document.getElementById("temp").addEventListener("focus", (ev) => {
+document.getElementById("name").addEventListener("focus", (ev) => {
     ev.preventDefault();
-    document.getElementById("temp").style.backgroundColor = "lightgrey";
+    document.getElementById("name").style.backgroundColor = "lightgrey";
 })
 
  // Blur
-document.getElementById("temp").addEventListener("blur", (ev) => {
+document.getElementById("name").addEventListener("blur", (ev) => {
     ev.preventDefault();
-    document.getElementById("temp").style.backgroundColor = "lightblue";
+    document.getElementById("name").style.backgroundColor = "lightblue";
 })
 
 /*mouseover*/
@@ -46,13 +46,13 @@ document.getElementById('content').addEventListener('contextmenu', event => {
 });
 
 /*keydown*/
-document.getElementById('fname').addEventListener('keydown', (ev) => {
-    document.getElementById("fname").style.backgroundColor = "lightred";
+document.getElementById('name').addEventListener('keydown', (ev) => {
+    document.getElementById("name").style.backgroundColor = "lightred";
 });
 
 /*Keyup*/
-document.getElementById('fname').addEventListener('keyup', (ev) => {
-    document.getElementById("fname").style.borderColor = "purple";
+document.getElementById('name').addEventListener('keyup', (ev) => {
+    document.getElementById("name").style.color = "purple";
 });
 
 /*blur*/
