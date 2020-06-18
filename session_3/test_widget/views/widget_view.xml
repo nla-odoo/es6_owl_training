@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="add_integer_range_form" model="ir.ui.view">
+        <field name="name">range.field.type.integer</field>
+        <field name="model">widget.field</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <field name="salary" widget="range"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="add_integer_range_form" model="ir.ui.view">
+        <field name="name">range.field.type.integer</field>
+        <field name="model">widget.field</field>
+        <field name="arch" type="xml">
+        <tree string="employee">
+            <field name="name"/>
+            <field name="salary"/>
+        </tree>
+        </field>
+    </record>
+
+    <record id="action_add_range_integer" model="ir.actions.act_window">
+        <field name="name">employee View</field>
+        <field name="res_model">widget.field</field>
+        <field name="view_mode">form</field>
+    </record>
+    
+    <menuitem id="main_menu" name="Range"/>
+    <menuitem id="sub_menu_1" action="action_add_range_integer" name="Range Type" parent="test_widget.main_menu"/>
+
+</odoo>
