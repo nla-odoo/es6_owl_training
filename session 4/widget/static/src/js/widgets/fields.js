@@ -1,6 +1,7 @@
 odoo.define('widget.fields_widget', function (require) {
 "use strict";
 
+    console.log('js file loaddedd');
     var basic_fields = require('web.basic_fields');
     var field_registry = require('web.field_registry');
     var view_registry = require('web.view_registry');

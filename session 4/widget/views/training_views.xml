@@ -5,7 +5,7 @@
         <field name="model">training.session</field>
         <field name="arch" type="xml">
             <tree string="Training Session">
-                <field name="name"/>
+                <field name="name_id"/>
             </tree>
         </field>
     </record>
@@ -18,7 +18,7 @@
                 <sheet>
                     <group>
 <!--                        <label for="name"/>-->
-                        <field name="name" type="'RangeIntegerField'"/>
+                        <field name="name_id" widget="RangeIntegerField"/>
                     </group>
                 </sheet>
             </form>

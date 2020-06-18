@@ -7,4 +7,4 @@ class TrainingSession(models.Model):
     _name = "training.session"
     _description = "Training Session"
 
-    name = fields.Integer(string="Name")
+    name_id = fields.Integer(string="Name Id")
