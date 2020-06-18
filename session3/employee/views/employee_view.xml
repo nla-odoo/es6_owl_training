@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="employee_view_form">
+        <field name="name">employee.form</field>
+        <field name="model">employee.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="working_hours" widget="rangewidget"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="employee_tree_view" model="ir.ui.view">
+        <field name="name">employee.tree</field>
+        <field name="model">employee.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Tree">
+                <field name="name"/>
+                <field name="working_hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_action" model="ir.actions.act_window">
+        <field name="name">employee</field>
+        <field name="res_model">employee.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Employee" id="employee_portal_menu_root"/>
+
+    <menuitem name="Employee" id="employee_portal_employee" parent="employee_portal_menu_root"/>
+
+    <menuitem name="Employee Details" id="employee_portal_employee_details" parent="employee_portal_employee"
+            action="employee.employee_action"/>
+
+</odoo>
