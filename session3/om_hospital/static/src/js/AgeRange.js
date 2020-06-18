@@ -5,9 +5,7 @@ var FieldInteger = require('web.basic_fields').FieldInteger;
 
 var core = require('web.core');
 var field_registry = require('web.field_registry');
-var qweb = core.qweb;
 
-var _t = core._t;
 
 
 
