@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="training_session_list_view">
+        <field name="name">training.session.list.view</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <tree string="Training Session">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="training_session_form_view">
+        <field name="name">training.session.form.view</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <form string="Training Session">
+                <sheet>
+                    <group>
+<!--                        <label for="name"/>-->
+                        <field name="name" type="'RangeIntegerField'"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_training_session">
+        <field name="name">Session</field>
+        <field name="res_model">training.session</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Training" id="menu_training"/>
+
+    <menuitem name="Session_submenu" id="menu_training_session" parent="menu_training"
+              action="action_training_session"/>
+</odoo>
