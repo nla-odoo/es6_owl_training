@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record model="ir.ui.view" id="student_view_form">
+        <field name="name">student.form</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="marks" widget="range"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_brand_tree_view" model="ir.ui.view">
+        <field name="name">student.tree</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <tree string="Student Tree">
+                <field name="marks"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_action" model="ir.actions.act_window">
+        <field name="name">student</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the student</p>
+        </field>
+    </record>
+
+    <menuitem name="Student" id="student_portal_menu_root"/>
+
+    <menuitem name="Student" id="student_portal_student" parent="student_portal_menu_root"/>
+
+    <menuitem name="Student Details" id="student_portal_student_details" parent="student_portal_student"
+              action="student_portal.student_action"/>
+
+</odoo>
