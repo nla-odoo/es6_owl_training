@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_widget_demo,access demo widget,test_widget.model_widget_field,,1,0,0,0
+access_widget_demo,access demo widget,test_widget.model_widget_field,,1,1,1,1
