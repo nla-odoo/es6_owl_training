@@ -1,8 +1,8 @@
 <templates>
   <div t-name="App">
     <h1>counter</h1>
-    <button t-on-click="increment">increase value</button>
+    <button t-on-click="incdec" data-name="inc">increase value</button>
     <p><t t-esc="counter.value"/></p>
-    <button t-on-click="decrement">decrease value</button>
+    <button t-on-click="incdec">decrease value</button>
   </div>
 </templates>

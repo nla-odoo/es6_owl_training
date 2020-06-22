@@ -7,15 +7,13 @@ from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 def start_server():
     SimpleHTTPRequestHandler.extensions_map['.js'] = 'application/javascript'
-    httpd = HTTPServer(('0.0.0.0', 3600), SimpleHTTPRequestHandler)
+    httpd = HTTPServer(('0.0.0.0', 3800), SimpleHTTPRequestHandler)
     httpd.serve_forever()
-
-url = 'http://127.0.0.1:3600'
 
 if __name__ == "__main__":
     print("Owl Application")
     print("---------------")
-    print("Server running on: {}".format(url))
+    print("Server running on: {}".format('http://127.0.0.1:3800/'))
     threading.Thread(target=start_server, daemon=True).start()
 
     while True:

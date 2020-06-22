@@ -2,7 +2,6 @@
 function app() {
   const { useState } = owl.hooks;
   const {Component, tags} = owl;
-  const { xml } = tags;
 
   class App extends Component {
       constructor() {
@@ -10,12 +9,9 @@ function app() {
           this.counter = useState({ value: 0 });
       }
 
-      increment(counter) {
-        this.counter.value++;
-      }
+      incdec (ev, counter) {
+        counter_value = ev.currentTarget.dataset.name === 'inc' ? this.counter.value++ : this.counter.value--;
 
-      decrement(counter) {
-        this.counter.value--;
       }
   }
   // Application setup
