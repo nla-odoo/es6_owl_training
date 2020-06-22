@@ -1,0 +1,8 @@
+<templates>
+	<div t-name="App" class="app">
+	    <h1>External Template</h1>
+	    <button t-on-click="increment">INCREMENT! </button> <br/>
+	    <h2> <t t-esc="counter.value"/> </h2> <br/>
+	    <button t-on-click="decrement">DECREMENt! </button>
+  	</div>
+</templates>
