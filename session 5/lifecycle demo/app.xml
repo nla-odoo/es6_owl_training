@@ -1,0 +1,15 @@
+<templates>
+  <div t-name="AppSubComponent" t-on-click="increment" class="demo">
+    <div>Sub components div</div>
+    <div>(click on me to update me)</div>
+    <div>Props: <t t-esc="props.state"/>, State: <t t-esc="state.subState"/>. </div>
+  </div>
+
+  <div t-name="App">
+    <button t-on-click="increment">Increment Parent State</button>
+    <button t-on-click="toggleSubComponent">Toggle SubComponent</button>
+    <div t-if="state.flag">
+      <AppSubComponent state="state.state"/>
+    </div>
+  </div>
+</templates>
