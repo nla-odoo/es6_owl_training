@@ -1,0 +1,8 @@
+<templates>
+  <div t-name="App">
+    <h1>Owl Counter App</h1>
+    <button t-on-click="increment"> + </button>
+    <p><t t-esc="counter.value"/></p>
+    <button t-on-click="decrement"> - </button>
+  </div>
+</templates>
