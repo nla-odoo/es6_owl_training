@@ -1,0 +1,9 @@
+<templates>
+    <div t-name="Application">
+        <h1>Quote</h1>
+        <button id="inc" t-on-click="increment">Increase</button><br />
+        <button id="dec" t-on-click="decrement">Decrease</button><br />
+        <button id="mul" t-on-click="double">Multi</button>
+        <p><t t-esc="counter.value"/></p>
+    </div>
+</templates>
