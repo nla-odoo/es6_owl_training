@@ -1,0 +1,37 @@
+<templates>
+  <div t-name="formBinding">
+    <h1>Form</h1>
+    <div>
+      Name (immediate): <input t-model="initialState.name"/>
+    </div>
+    <div>
+      Name(lazy): <input t-model.lazy="initialState.lname"/>
+    </div>
+    <div>
+      Number: <input  t-model="initialState.phoneNo"/>
+    </div>
+    <div>
+      Boolean: <input  type="checkbox" t-model="initialState.bool"/>
+    </div>
+    <div>
+      Fruit, with a select:
+      <select  t-model="initialState.fruit">
+        <option value="">Select a fruit</option>
+        <option value="apple">apple</option>
+        <option value="mango">mango</option>
+      </select>
+    </div>
+    <div>
+      Fruit, with radio buttons:
+        <span><input type="radio" name="fruit" id="apple" value="apple" t-model="initialState.fruit"/><label for="apple">Apple</label></span>
+        <span><input type="radio" name="fruit" id="mango" value="mango" t-model="initialState.fruit"/><label for="mango">Mango</label></span>
+    </div>
+    <hr/>
+    <h1>Current State</h1>
+    <div>Name: <t t-esc="initialState.name"/></div>
+    <div>Name(lazy): <t t-esc="initialState.lname"/></div>
+    <div>Number: <t t-esc="initialState.phoneNo"/></div>
+    <div>Boolean: <t t-if="initialState.bool">True</t><t t-else="">False</t></div>
+    <div>Fruit: <t t-esc="initialState.fruit"/></div>
+  </div>
+</templates>
