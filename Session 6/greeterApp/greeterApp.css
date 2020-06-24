@@ -1,0 +1,19 @@
+.greeter {
+	font-size: 20px;
+	
+	margin: 5px;
+	text-align: center;
+	line-height: 100px;
+	background-color: #eeeeee;
+	user-select: none;
+
+}
+
+.greeterSub {
+	font-size: 20px;
+	border-top: 1px solid black;
+	margin: 5px;
+	text-align: center;
+	line-height: 100px;
+	background-color: #eeeeee;
+}
