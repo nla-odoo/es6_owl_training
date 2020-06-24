@@ -1,0 +1,14 @@
+<templates t-name="Demo_Form">
+    <div>
+    	<div>Text Input: <input t-model="state.text"/></div><br />
+        <div>Other Text (lazy): <input t-model="state.othertext"/></div><br />
+    	<div>ID: <input t-model="state.number"/></div><br />
+    	<div>Gender: 
+    		<select t-model="state.gen">
+    			<option value="male">Male</option>
+    			<option value="female">Female</option>
+    			<option value="other">Other</option>
+    		</select>
+    	</div>
+   	</div> 					
+</templates>
