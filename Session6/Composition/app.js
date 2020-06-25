@@ -1,88 +1,65 @@
-function app()
-{
+function App() {
 
   const { Component, useState, tags } = owl;
   const { xml, css } = tags;
 
-  console.log("\n\n\n\n.........",xml);
-  console.log("\n\n\n\n.........",css);
-
-
-  const COUNTER_TEMPLATE = xml`<div>
-    <h1><t t-esc="props.title"/></h1>
-    <button t-on-click="state.value++" class="btn">
+  const SubComponent_Template = xml`<div>
+    <h1>
+        <t t-foreach="props.datas" t-as='data' t-key='data.id'>
+            <t t-esc='data.title'/>
+            <br/>
+        </t>
+    </h1>
+    <button t-on-click="toggle" class="btn">
       click..! [<t t-esc="state.value"/>]
     </button></div>`;
 
-  const COUNTER_STYLE = css`
+  const SubComponent_Style = css`
     .btn{height:50px; width:100px; font-weight:bold;}`;
 
-
-
- const COUNTER_TEMPLATE_NEW= xml`<div>
-    <h1><t t-esc="props.title_2"/></h1>
-    <button t-on-click="state.value_2++" class="btn">
-      Counter_new [<t t-esc="state.value_2"/>]
-    </button></div>`;
-
-  const COUNTER_STYLE_NEW = css`
-    .btn{height:50px; width:100px; font-weight:bold;}`;
-
-    class Counter_new extends Component {
-    state = useState({ value_2: 0, title_2:""})
-    toggle()
-    {
+  class SubComponent extends Component {
+    state = useState({ value: 0});
+    toggle(){
       this.el.querySelector('button').classList.toggle('btn');
-      }
+      this.state.value++;
     }
+  }
+  SubComponent.template = SubComponent_Template;
+  SubComponent.style = SubComponent_Style;
 
-
-  Counter_new.template = COUNTER_TEMPLATE_NEW;
-  Counter_new.style = COUNTER_STYLE_NEW;
-
-
-
-    class Counter extends Component {
-    state = useState({ value: 0, title:""})
-    toggle()
-    {
-      this.el.querySelector('button').classList.toggle('btn');
-      }
-    }
-
-
-
-  Counter.template = COUNTER_TEMPLATE;
-  Counter.style = COUNTER_STYLE;
-
+  // App
   const APP_TEMPLATE = xml`
     <div t-name="App">
-      <span>some text</span>
-      <Counter  title="'Title'"/>
-      <Counter_new  title="'Title'"/>
+      <span>Button Toggle</span>
+      <SubComponent  datas="tasks"/>
     </div>`;
 
   class App extends Component {
-    static components = { Counter,Counter_new };
+    static components = { SubComponent };
+    tasks = [
+        {
+            id: 1,
+            title: "apple",
+        },
+        {
+            id: 2,
+            title: "banana",
+        },
+    ];
 
   }
+  App.template = APP_TEMPLATE;
 
-
-   App.template = APP_TEMPLATE;
-
+  // Application setup
   const app = new App();
   app.mount(document.body);
+
 }
-
-
-
-
-
 
 async function start() {
   let templates;
   try {
-    templates = await owl.utils.loadFile('index.xml');
+    templates = await owl.utils.loadFile('app.xml');
   } catch(e) {
     console.error(`This app requires a static server.  If you have python installed, try 'python app.py'`);
     return;
@@ -90,7 +67,7 @@ async function start() {
   const env = { qweb: new owl.QWeb({templates})};
   owl.Component.env = env;
   await owl.utils.whenReady();
-  app();
+  App();
 }
 
 start();
