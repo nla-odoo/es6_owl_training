@@ -24,7 +24,7 @@ function app() {
     <div>
       <input t-ref="input"/>
       <button t-on-click="addinto_list">Click</button>
-      <SubComponent t-ref="SubCom" />
+     
     </div>`;
 
 
