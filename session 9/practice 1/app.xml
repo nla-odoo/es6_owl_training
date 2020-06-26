@@ -1,0 +1,13 @@
+<templates>
+  <div t-name="DemoComponent" t-on-click="increment" class="demo">
+    <div>click on me to update me</div>
+    <div>Props: <t t-esc="props.n"/>, State: <t t-esc="state.n"/>. </div>
+  </div>
+
+  <div t-name="App">
+    <button t-on-click="increment">Increment Parent State</button>
+    <div>
+      <DemoComponent n="state.n"/>
+    </div>
+  </div>
+</templates>
