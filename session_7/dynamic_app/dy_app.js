@@ -15,14 +15,17 @@ class App extends Component {
       <button t-on-click="focusInput">Click</button>
     </div>`;
 
-  state = useState ({ child: "a" });
-
+  state = useState ({ child: "demo" });
+  this.list=[1,2,3,4,5];
+  
   get myComponent() {
-    return this.state.child === "a" ? A : B;
+    return this.state.child === "demo" ? java : python;
   }
   change_state(){
-    debugger;
-    return this.state.child === "a" ? "b" :"a";
+    return this.state.child === "java" ? "python" :"java";
+  }
+  set_props() {
+    this.props=this.list;
   }
 }
   
