@@ -4,17 +4,15 @@ function app() {
   const { useRef } = owl.hooks;
 
 const child_Component = xml`
-     <h1>
-       <t t-esc="props"/>
+    <h1>
+       <test t-props="some.list"/>
     </h1>`;
 
 class chlidComponent extends App
     {
-        state = useState({ list : ""})
-    
+      state = useState({list : ""})
     }
 
-  
   chlidComponent.template = child_Component;
   const appl = new chlidComponent();
 

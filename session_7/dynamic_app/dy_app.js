@@ -3,35 +3,36 @@ function app() {
   const { xml, css } = tags;
   const { useRef } = owl.hooks;
 
-class java extends Component {
-  static template = xml`<span>child a</span>`;
+class java1 extends Component {
+  static template = xml`<span>child java</span>`;
 }
-class python extends Component {
-  static templatese = xml`<span>child b</span>`;
+class python1 extends Component {
+  static template = xml`<span>child python</span>`;
 }
 class App extends Component {
+   constructor(parent, props) {
+    super(...arguments);
+    static components = { test };
+    some = { list: { 1, 2, 3, 4, 5 } };
+  }
   static template = xml`<div>
       <input t-ref="input"/><br/><br/>
-      <button t-on-click="focusInput">Click</button>
+      <button t-on-click="change_state">Click..[<t t-esc="state.child"/>]</button>
+      <t t-component="myComponent" t-key="state.child"/>
     </div>`;
 
-  state = useState ({ child: "demo" });
-  this.list=[1,2,3,4,5];
+  state = useState ({ child: "java" });
   
   get myComponent() {
-    return this.state.child === "demo" ? java : python;
+    return this.state.child === "java" ? java1 : python1;
   }
   change_state(){
-    return this.state.child === "java" ? "python" :"java";
-  }
-  set_props() {
-    this.props=this.list;
+    this.state.child = this.state.child === "java" ? "python" :"java";
   }
 }
   
-  // App.template = APP_TEMPLATE;
-  const app = new App();
-  app.mount(document.body);
+const app = new App();
+app.mount(document.body);
 
 }
 
