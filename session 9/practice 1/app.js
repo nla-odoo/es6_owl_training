@@ -1,20 +1,14 @@
-function app() {
+function App() {
 
   const { Component, useState } = owl;
+  const { xml, css } = owl.tags;
 
-  class DemoComponent extends Component {
-      constructor() {
-          super(...arguments);
-          this.state = useState({ n: 0 });
-          console.log("constructor");
-      }
+  const app_template = xml`
+     <div>
+        <button t-on-click="increment">Increment Parent State</button>
+    </div>`;
 
-      increment() {
-          this.state.n++;
-      }
-  }
-
-  class App extends Component {
+  class RootApp extends Component {
       constructor() {
           super(...arguments);
           this.state = useState({ n: 0});
@@ -23,11 +17,14 @@ function app() {
       increment() {
           this.state.n++;
       }
-  }
-  App.components = { DemoComponent };
 
-  const app = new App();
-  app.mount(document.body);
+      set_props() {
+        this.props= this.state.n;
+      }
+  }
+  RootApp.template = app_template;
+  const rootApp = new RootApp();
+  rootApp.mount(document.body);
 
 }
 
@@ -43,18 +40,7 @@ async function start() {
   const env = { qweb: new owl.QWeb({templates})};
   owl.Component.env = env;
   await owl.utils.whenReady();
-  app();
+  App();
 }
 
 start();
-//async function start() {
-//    const templates = await owl.utils.loadFile("app.xml");
-//    const env = {
-//        qweb: new owl.QWeb(templates)
-//    };
-//    const app = new App(env);
-//    const target = document.getElementById("MyFirstApps");
-//    await app.mount(target);
-//}
-
-//start();
