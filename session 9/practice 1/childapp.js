@@ -11,12 +11,12 @@ const childComponentTemplate = xml`
          </h1>
     </div>`;
 
-class childComponent extends App{}
+class childComponent extends App{
+    static template = childComponentTemplate;
+}
 
-  childComponent.template = childComponentTemplate;
+//  childComponent.template = childComponentTemplate;
   const childApp = new childComponent();
-  childApp.set_props();
-  childApp.mount(document.body);
 
 }
 

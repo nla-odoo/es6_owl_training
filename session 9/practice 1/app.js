@@ -5,10 +5,11 @@ function App() {
 
   const app_template = xml`
      <div>
-        <button t-on-click="increment">Increment Parent State</button>
+        <button t-on-click="increment">Increment Parent State ani</button>
     </div>`;
 
   class RootApp extends Component {
+      static template = app_template;
       constructor() {
           super(...arguments);
           this.state = useState({ n: 0});
@@ -16,13 +17,14 @@ function App() {
 
       increment() {
           this.state.n++;
+          console.log('increment>>>>>>>>>..')
       }
 
       set_props() {
         this.props= this.state.n;
       }
   }
-  RootApp.template = app_template;
+
   const rootApp = new RootApp();
   rootApp.mount(document.body);
 
