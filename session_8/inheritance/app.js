@@ -24,7 +24,7 @@ function app() {
          </t>
      </div>`;
 
- class App extends Component {
+ class App extends Task {
      static template = APP_TEMPLATE;
      static components = { Task };
 
