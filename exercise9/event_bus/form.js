@@ -2,36 +2,42 @@ function app() {
   const { Component, useState, tags } = owl;
   const { xml, css } = tags;
   const { useRef } = owl.hooks;
-
+  const bus = new owl.core.EventBus();
 
   const COUNTER_TEMPLATE = xml`<div>
-    <li></li>
+    <h1></h1>
+    <h2></h2>
     </div>`;
-    // <li><t t-esc=""/></li>
 
   class Counter extends Component {
-    state = useState({ value: 0, title:""})
+    constructor(...args){
+      super(...args);
+      this.state = useState({ value: 0, title:""});
+      bus.on("click_me", null, function (...args) {
+        self.document.querySelector("h1").innerText=args;
+      });
+      bus.on("add_me", null, function (...args) {
+        self.document.querySelector("h2").innerText=args;
+      });
+    }
   }
   Counter.template = COUNTER_TEMPLATE;
 
 
   const APP_TEMPLATE = xml`
     <div>
-      <input t-ref="input"/>
       <button t-on-click="operations">Click</button>
-      <Counter t-ref="some_component" />
+      <button t-on-click="increment">Add</button>
     </div>`;
 
   class App extends Component {
-    static components = { Counter };
-    inputRef = useRef("input");
-    component_ref = useRef("some_component");
-    inputlist = [];
 
     operations() {
-      var a = this.inputRef.el.value;
-      this.inputlist.push(a);
-      this.component_ref.el.innerHTML = this.inputlist;
+      debugger;
+      bus.trigger("click_me", 1, 2, 3);
+    }
+    increment() {
+      bus.trigger("add_me", 2, 3, 4);
     }
   }
 
@@ -39,9 +45,15 @@ function app() {
   App.template = APP_TEMPLATE;
   const app = new App();
   app.mount(document.body);
+  const counter = new Counter();
+  counter.mount(document.body);
 
 }
 
+/**
+ * Initialization code
+ * This code load templates, and make sure everything is properly connected.
+ */
 async function start() {
   let templates;
   try {
